@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/CustomNodes/VButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Images/icons/Puzzle_white128.png" type="Texture" id=2]
+
+[node name="TwoElements" type="HBoxContainer"]
+margin_top = 384.0
+margin_right = 1080.0
+margin_bottom = 750.0
+grow_horizontal = 0
+grow_vertical = 0
+custom_constants/separation = 40
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_left = 232.0
+margin_right = 520.0
+margin_bottom = 366.0
+
+[node name="VButton2" parent="CenterContainer" instance=ExtResource( 1 )]
+margin_top = 39.0
+margin_right = 288.0
+margin_bottom = 327.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 40
+img = ExtResource( 2 )
+text = "TEST2"
+margin = 40
+padding = 40
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+margin_left = 560.0
+margin_right = 848.0
+margin_bottom = 366.0
+
+[node name="VButton" parent="CenterContainer2" instance=ExtResource( 1 )]
+margin_top = 39.0
+margin_right = 288.0
+margin_bottom = 327.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 40
+img = ExtResource( 2 )
+text = "TEST1"
+margin = 40
+padding = 40
+

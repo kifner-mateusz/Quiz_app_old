@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Themes/DarkThemeFlat.tres" type="Theme" id=1]
+[ext_resource path="res://MainMenu/MainMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UserSettings/UserSettings.tscn" type="PackedScene" id=3]
+[ext_resource path="res://LogIn/LogIn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Debug.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Images/icons/burger.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 18.0
+content_margin_right = 18.0
+content_margin_top = 30.0
+content_margin_bottom = 30.0
+bg_color = Color( 0.192157, 0.117647, 0.117647, 1 )
+border_color = Color( 0.117647, 0.12549, 0.192157, 1 )
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+
+[node name="MainMenu" parent="." instance=ExtResource( 2 )]
+
+[node name="UserSettings" parent="." instance=ExtResource( 3 )]
+margin_left = 30.9823
+margin_top = -2027.12
+margin_right = 30.9823
+margin_bottom = -2027.12
+
+[node name="LogIn" parent="." instance=ExtResource( 4 )]
+margin_left = -1133.07
+margin_top = -17.7042
+margin_right = -1133.07
+margin_bottom = -17.7041
+
+[node name="Debug" type="HBoxContainer" parent="."]
+editor/display_folded = true
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -252.0
+margin_right = 523.0
+margin_bottom = -126.0
+mouse_filter = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 0
+script = ExtResource( 5 )
+
+[node name="hide" type="Button" parent="Debug"]
+margin_right = 100.0
+margin_bottom = 126.0
+custom_styles/normal = SubResource( 1 )
+icon = ExtResource( 6 )
+
+[node name="Login" type="Button" parent="Debug"]
+visible = false
+margin_left = 100.0
+margin_right = 314.0
+margin_bottom = 126.0
+text = "Go login"
+
+[node name="Quiz" type="Button" parent="Debug"]
+visible = false
+margin_left = 100.0
+margin_right = 309.0
+margin_bottom = 126.0
+text = "Go Quiz"
+
+[node name="Main" type="Button" parent="Debug"]
+visible = false
+margin_left = 100.0
+margin_right = 314.0
+margin_bottom = 126.0
+text = "Go main"
+
+[node name="Control" type="Control" parent="Debug"]
+margin_left = 100.0
+margin_right = 100.0
+margin_bottom = 126.0
+
+[node name="Label" type="Label" parent="Debug/Control"]
+margin_right = 36.0
+margin_bottom = 126.0
+
+[connection signal="pressed" from="Debug/hide" to="Debug" method="_on_hide_pressed"]
+[connection signal="pressed" from="Debug/Login" to="Debug" method="_on_Login_pressed"]
+[connection signal="pressed" from="Debug/Quiz" to="Debug" method="_on_Quiz_pressed"]
+[connection signal="pressed" from="Debug/Main" to="Debug" method="_on_Main_pressed"]

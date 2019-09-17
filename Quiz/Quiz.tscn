@@ -1,0 +1,257 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Assets/Themes/DarkThemeFlat.tres" type="Theme" id=1]
+[ext_resource path="res://Quiz/Quiz.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Themes/BlueAssets/Blue_material.tres" type="Material" id=3]
+[ext_resource path="res://Assets/Fonts/Nunito_bold_big.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/Fonts/Nunito_bold.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/CustomNodes/HShadowBottom.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Fonts/Nunito_bold_x2.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Quiz/Warning.gd" type="Script" id=8]
+[ext_resource path="res://Assets/CustomNodes/HShadowTop.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Images/icons/arrow.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Images/icons/burger.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Images/icons/check.png" type="Texture" id=12]
+
+[node name="Quiz" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+custom_constants/separation = 0
+script = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 1080.0
+margin_bottom = 140.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+material = ExtResource( 3 )
+margin_right = 1080.0
+margin_bottom = 140.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+margin_right = 1080.0
+margin_bottom = 140.0
+custom_constants/margin_right = 40
+custom_constants/margin_left = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer"]
+margin_left = 40.0
+margin_right = 1040.0
+margin_bottom = 140.0
+
+[node name="Section" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer"]
+margin_right = 847.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 4 )
+text = "Zadanie 1"
+
+[node name="Time" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer"]
+margin_left = 865.0
+margin_top = 14.0
+margin_right = 1000.0
+margin_bottom = 140.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 9
+size_flags_vertical = 8
+custom_fonts/font = ExtResource( 5 )
+text = "5:00"
+
+[node name="HSeparatorBottom" parent="." instance=ExtResource( 6 )]
+margin_top = 140.0
+margin_bottom = 140.0
+
+[node name="Control" type="Control" parent="."]
+margin_top = 140.0
+margin_right = 1080.0
+margin_bottom = 1794.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Exercise" type="VBoxContainer" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = 30.0
+margin_right = -30.0
+margin_bottom = -30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_constants/separation = 4
+
+[node name="End" type="VBoxContainer" parent="Control"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Control/End"]
+margin_right = 1080.0
+margin_bottom = 192.0
+custom_fonts/font = ExtResource( 7 )
+text = "Zadnie zakończone"
+align = 1
+valign = 1
+
+[node name="Points" type="Label" parent="Control/End"]
+margin_top = 210.0
+margin_right = 1080.0
+margin_bottom = 350.0
+custom_fonts/font = ExtResource( 4 )
+text = "0/0"
+align = 1
+valign = 1
+
+[node name="Warning" type="Control" parent="Control"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="Control/Warning"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.27451 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Warning"]
+anchor_right = 1.0
+margin_bottom = 569.0
+custom_constants/margin_right = 100
+custom_constants/margin_top = 100
+custom_constants/margin_left = 100
+
+[node name="ColorRect" type="ColorRect" parent="Control/Warning/MarginContainer"]
+margin_left = 100.0
+margin_top = 100.0
+margin_right = 980.0
+margin_bottom = 569.0
+color = Color( 0.184314, 0.184314, 0.184314, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Warning/MarginContainer"]
+margin_left = 100.0
+margin_top = 100.0
+margin_right = 980.0
+margin_bottom = 569.0
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 40
+
+[node name="Warning" type="VBoxContainer" parent="Control/Warning/MarginContainer/MarginContainer"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 840.0
+margin_bottom = 429.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 40
+
+[node name="Points" type="Label" parent="Control/Warning/MarginContainer/MarginContainer/Warning"]
+margin_right = 800.0
+margin_bottom = 223.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 4 )
+text = "If you quit now,
+ your progress will be lost!!!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Warning/MarginContainer/MarginContainer/Warning"]
+margin_top = 263.0
+margin_right = 800.0
+margin_bottom = 389.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+
+[node name="Back" type="Button" parent="Control/Warning/MarginContainer/MarginContainer/Warning/HBoxContainer"]
+margin_right = 400.0
+margin_bottom = 126.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Back"
+
+[node name="VSeparator3" type="VSeparator" parent="Control/Warning/MarginContainer/MarginContainer/Warning/HBoxContainer"]
+margin_left = 400.0
+margin_right = 400.0
+margin_bottom = 126.0
+
+[node name="Quit" type="Button" parent="Control/Warning/MarginContainer/MarginContainer/Warning/HBoxContainer"]
+margin_left = 400.0
+margin_right = 800.0
+margin_bottom = 126.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Quit"
+
+[node name="HShadowTop" parent="." instance=ExtResource( 9 )]
+
+[node name="Menu" type="HBoxContainer" parent="."]
+margin_top = 1794.0
+margin_right = 1080.0
+margin_bottom = 1920.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+custom_constants/separation = 0
+alignment = 1
+
+[node name="Back" type="Button" parent="Menu"]
+margin_right = 540.0
+margin_bottom = 126.0
+size_flags_horizontal = 3
+custom_constants/hseparation = -30
+text = "Back"
+icon = ExtResource( 10 )
+
+[node name="VSeparator" type="VSeparator" parent="Menu"]
+margin_left = 540.0
+margin_right = 540.0
+margin_bottom = 126.0
+
+[node name="Menu" type="Button" parent="Menu"]
+visible = false
+margin_left = 360.0
+margin_right = 720.0
+margin_bottom = 126.0
+size_flags_horizontal = 3
+custom_constants/hseparation = -30
+text = "Menu"
+icon = ExtResource( 11 )
+
+[node name="VSeparator2" type="VSeparator" parent="Menu"]
+visible = false
+margin_left = 540.0
+margin_right = 540.0
+margin_bottom = 126.0
+
+[node name="Check" type="Button" parent="Menu"]
+margin_left = 540.0
+margin_right = 1080.0
+margin_bottom = 126.0
+size_flags_horizontal = 3
+custom_constants/hseparation = -30
+text = "Check"
+icon = ExtResource( 12 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="pressed" from="Control/Warning/MarginContainer/MarginContainer/Warning/HBoxContainer/Back" to="Control/Warning" method="_on_Back_pressed"]
+[connection signal="pressed" from="Control/Warning/MarginContainer/MarginContainer/Warning/HBoxContainer/Quit" to="Control/Warning" method="_on_Quit_pressed"]
+[connection signal="pressed" from="Menu/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Menu/Check" to="." method="check"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

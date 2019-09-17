@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Themes/DarkThemeFlat.tres" type="Theme" id=1]
+[ext_resource path="res://Quiz/quiz_buttongroup.tres" type="ButtonGroup" id=2]
+
+[node name="Exercise" type="VBoxContainer"]
+margin_left = 10.0
+margin_top = 68.0
+margin_right = 490.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+
+[node name="Question" type="Label" parent="."]
+margin_right = 480.0
+margin_bottom = 264.0
+text = "Czy funkcja range może mieć argument -100?"
+autowrap = true
+
+[node name="a" type="CheckBox" parent="."]
+margin_top = 282.0
+margin_right = 480.0
+margin_bottom = 408.0
+group = ExtResource( 2 )
+text = "Nie"
+
+[node name="b" type="CheckBox" parent="."]
+margin_top = 426.0
+margin_right = 480.0
+margin_bottom = 552.0
+group = ExtResource( 2 )
+text = "Nie"
+
+[node name="c" type="CheckBox" parent="."]
+margin_top = 570.0
+margin_right = 480.0
+margin_bottom = 696.0
+group = ExtResource( 2 )
+text = "Nie"
+
+[node name="d" type="CheckBox" parent="."]
+margin_top = 714.0
+margin_right = 480.0
+margin_bottom = 840.0
+group = ExtResource( 2 )
+text = "Tak"
+

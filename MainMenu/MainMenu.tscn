@@ -1,0 +1,138 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Assets/Themes/DarkThemeFlat.tres" type="Theme" id=1]
+[ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Themes/BlueAssets/Blue_label.tres" type="StyleBox" id=3]
+[ext_resource path="res://Assets/Fonts/Nunito_bold_big.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/CustomNodes/HShadowBottom.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Themes/Shaders/circle.shader" type="Shader" id=6]
+[ext_resource path="res://Assets/Images/icons/profile.png" type="Texture" id=7]
+[ext_resource path="res://MainMenu/Profile.gd" type="Script" id=8]
+[ext_resource path="res://MainMenu/Content.gd" type="Script" id=9]
+[ext_resource path="res://Puzzles/Puzzles_Menu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Chat/Chat.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Grades/Grades.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Images/icons/puzzle64.png" type="Texture" id=13]
+[ext_resource path="res://Assets/CustomNodes/HShadowTop.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Assets/Images/icons/chat64.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Images/icons/trophy64.png" type="Texture" id=16]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 6 )
+
+[node name="MainMenu" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+custom_constants/separation = 0
+script = ExtResource( 2 )
+
+[node name="Welcome" type="Label" parent="."]
+margin_right = 1080.0
+margin_bottom = 160.0
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
+text = "Witaj, ??? !"
+
+[node name="HSeparatorBottom" parent="Welcome" instance=ExtResource( 5 )]
+
+[node name="Profile" type="TextureButton" parent="Welcome"]
+material = SubResource( 1 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = -20.0
+margin_right = -20.0
+margin_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource( 7 )
+script = ExtResource( 8 )
+
+[node name="Content" type="Control" parent="."]
+show_behind_parent = true
+margin_top = 160.0
+margin_right = 1080.0
+margin_bottom = 1794.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 9 )
+
+[node name="Puzzles" parent="Content" instance=ExtResource( 10 )]
+
+[node name="Chat" parent="Content" instance=ExtResource( 11 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1210.54
+margin_top = -18.9739
+margin_right = 1210.54
+margin_bottom = -18.9739
+
+[node name="Grades" parent="Content" instance=ExtResource( 12 )]
+
+[node name="Menu" type="HBoxContainer" parent="."]
+margin_top = 1794.0
+margin_right = 1080.0
+margin_bottom = 1920.0
+custom_constants/separation = 0
+alignment = 1
+
+[node name="Button" type="Button" parent="Menu"]
+margin_right = 360.0
+margin_bottom = 126.0
+size_flags_horizontal = 3
+custom_constants/hseparation = -30
+text = "Puzzles"
+icon = ExtResource( 13 )
+
+[node name="HShadowTop" parent="Menu/Button" instance=ExtResource( 14 )]
+anchor_right = 1.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="VSeparator" type="VSeparator" parent="Menu"]
+margin_left = 360.0
+margin_right = 360.0
+margin_bottom = 126.0
+
+[node name="Button2" type="Button" parent="Menu"]
+margin_left = 360.0
+margin_right = 720.0
+margin_bottom = 126.0
+size_flags_horizontal = 3
+custom_constants/hseparation = -30
+text = "Chat"
+icon = ExtResource( 15 )
+
+[node name="HShadowTop" parent="Menu/Button2" instance=ExtResource( 14 )]
+anchor_right = 1.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="VSeparator2" type="VSeparator" parent="Menu"]
+margin_left = 720.0
+margin_right = 720.0
+margin_bottom = 126.0
+
+[node name="Button3" type="Button" parent="Menu"]
+margin_left = 720.0
+margin_right = 1080.0
+margin_bottom = 126.0
+size_flags_horizontal = 3
+custom_constants/hseparation = -30
+text = "Grades"
+icon = ExtResource( 16 )
+
+[node name="HShadowTop" parent="Menu/Button3" instance=ExtResource( 14 )]
+anchor_right = 1.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="pressed" from="Welcome/Profile" to="Welcome/Profile" method="_on_Profile_pressed"]

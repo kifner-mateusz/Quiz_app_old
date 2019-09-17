@@ -1,0 +1,60 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Object",
+"class": "FastHTTP",
+"language": "GDScript",
+"path": "res://Assets/CustomNodes/FastHTTP.gd"
+} ]
+_global_script_class_icons={
+"FastHTTP": ""
+}
+
+[application]
+
+config/name="Quiz_app"
+run/main_scene="res://Main.tscn"
+boot_splash/image="res://Assets/Images/icons/Puzzle_white.png"
+boot_splash/bg_color=Color( 0.117647, 0.12549, 0.192157, 1 )
+config/icon="res://Assets/Images/icons/Puzzle_white.png"
+
+[autoload]
+
+SessionManager="*res://SessionManager.gd"
+User="*res://User.gd"
+Puzzle="*res://Puzzle.gd"
+
+[debug]
+
+gdscript/warnings/unused_variable=false
+gdscript/warnings/unused_class_variable=false
+gdscript/warnings/unused_argument=false
+gdscript/warnings/return_value_discarded=false
+
+[display]
+
+window/size/width=1080
+window/size/height=1920
+window/size/test_width=540
+window/size/test_height=960
+window/dpi/allow_hidpi=true
+window/energy_saving/keep_screen_on=false
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0.117647, 0.156863, 0.196078, 1 )
+environment/default_environment="res://Assets/Themes/default_env.tres"

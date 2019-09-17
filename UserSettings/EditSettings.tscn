@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Themes/DarkThemeFlat.tres" type="Theme" id=1]
+[ext_resource path="res://UserSettings/UserSettings.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Themes/BlueAssets/Blue_material.tres" type="Material" id=3]
+[ext_resource path="res://UserSettings/EditSettings.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Images/icons/White_x128.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Images/icons/Gray_x128.png" type="Texture" id=6]
+[ext_resource path="res://Assets/CustomNodes/HShadowBottom.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/CustomNodes/Tween.tscn" type="PackedScene" id=8]
+
+[node name="EditSettings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1722.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+script = ExtResource( 4 )
+
+[node name="Exit" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -160.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+
+[node name="HSeparatorBottom" parent="." instance=ExtResource( 7 )]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="Button" type="Button" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -126.0
+margin_right = 36.0
+text = "Update DATA"
+
+[node name="Tween" parent="." instance=ExtResource( 8 )]
+
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Button" to="ScrollContainer/VBoxContainer" method="_on_Button_pressed"]

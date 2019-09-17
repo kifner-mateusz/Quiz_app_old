@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Puzzles/Puzzles_Menu.gd" type="Script" id=1]
+
+[node name="Puzzles" type="ScrollContainer"]
+margin_top = 18.0
+margin_right = 1080.0
+margin_bottom = 1598.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_vertical_enabled = false
+script = ExtResource( 1 )
+
+[node name="icons" type="VBoxContainer" parent="."]
+margin_right = 1080.0
+margin_bottom = 1580.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
