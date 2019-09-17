@@ -5,6 +5,7 @@ Projek porzucony!!!
 
 Ta apka do Quizów została zrobiona w Godocie i używała PHP jako backend.
 
+Zdjęcia:<br>
 [![sample screenshot](README_assets/screenshot-s01.png)](README_assets/screenshot01.png)
 [![sample screenshot](README_assets/screenshot-s02.png)](README_assets/screenshot02.png)
 [![sample screenshot](README_assets/screenshot-s03.png)](README_assets/screenshot03.png)
