@@ -1,6 +1,5 @@
-# Quiz_app_old
-Quiz_app
-
+# quiz_app_old
+quiz_app
 Projek porzucony!!!
 
 Ta apka do Quizów została zrobiona w Godocie i używała PHP jako backend.
